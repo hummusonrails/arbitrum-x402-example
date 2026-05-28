@@ -33,7 +33,11 @@ export function ModeToggle({
         aria-selected={mode === "live"}
         disabled={!liveEnabled}
         onClick={() => onChange("live")}
-        title={liveEnabled ? "Pay with a connected wallet (real ~$0.01)" : "Set CDP credentials to enable live mode"}
+        title={
+          liveEnabled
+            ? "Pay with a connected wallet (real ~$0.01)"
+            : "Live mode runs locally. Clone the repo and add CDP keys to enable it."
+        }
         className={cn(
           "border-l border-line px-3 py-1.5 font-mono text-xs transition-colors",
           mode === "live" ? "bg-arb-blue text-navy-deep" : "text-arb-blue-soft hover:text-white",

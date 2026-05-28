@@ -14,6 +14,7 @@ import type { Mode } from "@/components/ModeToggle";
 import { cn } from "@/lib/cn";
 
 const ARBITRUM_CHAIN_ID = 42161;
+const REPO_URL = "https://github.com/hummusonrails/arbitrum-x402-example";
 
 export function Walkthrough({
   stepViews,
@@ -133,6 +134,22 @@ export function Walkthrough({
             mobileTab === "lesson" && "hidden lg:flex"
           )}
         >
+          {!liveEnabled && (
+            <div className="border border-arb-blue/30 bg-surface/40 p-3 text-xs leading-relaxed text-arb-blue-soft">
+              <span className="font-mono uppercase tracking-widest text-arb-blue">Replay only</span> on this
+              hosted demo. Live mode signs with your wallet and settles real USDC, so it needs CDP keys and runs
+              locally.{" "}
+              <a
+                href={REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-arb-blue underline underline-offset-2 hover:text-arb-blue-soft"
+              >
+                Clone the repo to try it →
+              </a>
+            </div>
+          )}
+
           {mode === "live" && (
             <div className="border border-line bg-surface/40 p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
