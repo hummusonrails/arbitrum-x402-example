@@ -1,7 +1,7 @@
 import type { PaymentPayload, PaymentRequirements, SettleResponse, VerifyResponse } from "@x402/core/types";
-import { ARBITRUM_ONE } from "./networks.js";
-import { mintCdpJwt } from "./cdp-jwt.js";
-import type { MerchantConfig } from "./x402.js";
+import { ARBITRUM_ONE } from "./networks";
+import { mintCdpJwt } from "./cdp-jwt";
+import type { MerchantConfig } from "./x402";
 
 // shape of @x402/core verifyrequest / settlerequest
 interface FacilitatorRequest {

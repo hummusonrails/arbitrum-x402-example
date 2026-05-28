@@ -1,13 +1,18 @@
-import "dotenv/config";
+import "./load-env";
 import express from "express";
 import {
   decodePaymentSignatureHeader,
   encodePaymentRequiredHeader,
   encodePaymentResponseHeader,
 } from "@x402/core/http";
-import { ARBITRUM_ONE } from "./networks.js";
-import { buildPaymentRequired, type MerchantConfig } from "./x402.js";
-import { settlePayment, verifyPayment } from "./facilitator.js";
+import {
+  ARBITRUM_ONE,
+  buildPaymentRequired,
+  buildRequirements,
+  settlePayment,
+  verifyPayment,
+  type MerchantConfig,
+} from "@x402-arbitrum/core";
 
 const config: MerchantConfig = {
   recipientAddress: process.env.RECIPIENT_ADDRESS ?? "",
@@ -32,7 +37,7 @@ const app = express();
 app.get("/report", async (req, res) => {
   const resourceUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
   const paymentRequired = buildPaymentRequired(config, resourceUrl);
-  const requirements = paymentRequired.accepts[0];
+  const requirements = buildRequirements(config);
 
   // v2 buyer uses payment-signature; v1 used x-payment
   const paymentHeader = req.get("payment-signature") ?? req.get("x-payment");

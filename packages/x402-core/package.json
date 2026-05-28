@@ -1,0 +1,23 @@
+{
+  "name": "@x402-arbitrum/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared x402 v2 protocol logic for Arbitrum One + Coinbase CDP facilitator.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@x402/core": "^2.13.0",
+    "@x402/fetch": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}

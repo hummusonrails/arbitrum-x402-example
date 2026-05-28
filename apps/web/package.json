@@ -1,0 +1,44 @@
+{
+  "name": "@x402-arbitrum/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive teaching frontend for the x402-on-Arbitrum demo.",
+  "scripts": {
+    "extract-snippets": "node scripts/extract-snippets.mjs",
+    "predev": "node scripts/extract-snippets.mjs",
+    "prebuild": "node scripts/extract-snippets.mjs",
+    "pretypecheck": "node scripts/extract-snippets.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@shikijs/transformers": "^4.1.0",
+    "@tanstack/react-query": "^5.100.14",
+    "@x402-arbitrum/core": "workspace:*",
+    "@x402/core": "^2.13.0",
+    "@x402/evm": "^2.13.0",
+    "@x402/fetch": "^2.13.0",
+    "dotenv": "^16.4.5",
+    "motion": "^12.40.0",
+    "next": "^16.2.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "server-only": "^0.0.1",
+    "shiki": "^4.1.0",
+    "viem": "^2.51.3",
+    "wagmi": "^3.6.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^20.14.10",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.9.3"
+  }
+}

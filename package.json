@@ -1,8 +1,8 @@
 {
-  "name": "x402-arbitrum-cdp-facilitator",
+  "name": "x402-arbitrum",
   "version": "0.1.0",
   "private": true,
-  "description": "x402 v2 payments on Arbitrum One settled by the Coinbase CDP facilitator: an Express merchant and a viem buyer.",
+  "description": "x402 v2 payments on Arbitrum One settled by the Coinbase CDP facilitator: a CLI demo plus an interactive teaching frontend.",
   "author": "Ben Greenberg",
   "license": "MIT",
   "type": "module",
@@ -10,22 +10,15 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "serve": "tsx src/server.ts",
-    "buy": "tsx src/buyer.ts",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@x402/core": "^2.13.0",
-    "@x402/evm": "^2.13.0",
-    "@x402/fetch": "^2.13.0",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.2",
-    "viem": "^2.21.0"
+    "serve": "pnpm --filter @x402-arbitrum/demo serve",
+    "buy": "pnpm --filter @x402-arbitrum/demo buy",
+    "web": "pnpm --filter @x402-arbitrum/web dev",
+    "web:build": "pnpm --filter @x402-arbitrum/web build",
+    "capture-fixtures": "pnpm --filter @x402-arbitrum/demo capture-fixtures",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r --if-present test"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.14.10",
-    "tsx": "^4.19.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.9.3"
   }
 }

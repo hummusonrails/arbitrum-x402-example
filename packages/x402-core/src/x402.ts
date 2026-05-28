@@ -1,5 +1,5 @@
 import type { PaymentRequired, PaymentRequirements } from "@x402/fetch";
-import { ARBITRUM_ONE } from "./networks.js";
+import { ARBITRUM_ONE } from "./networks";
 
 export interface MerchantConfig {
   recipientAddress: string;
@@ -8,8 +8,8 @@ export interface MerchantConfig {
   cdpPrivateKey: string;
 }
 
-export function buildPaymentRequired(config: MerchantConfig, resourceUrl: string): PaymentRequired {
-  const requirements: PaymentRequirements = {
+export function buildRequirements(config: MerchantConfig): PaymentRequirements {
+  return {
     scheme: "exact",
     network: ARBITRUM_ONE.network,
     asset: ARBITRUM_ONE.usdc,
@@ -18,7 +18,9 @@ export function buildPaymentRequired(config: MerchantConfig, resourceUrl: string
     maxTimeoutSeconds: 300,
     extra: ARBITRUM_ONE.usdcEip712,
   };
+}
 
+export function buildPaymentRequired(config: MerchantConfig, resourceUrl: string): PaymentRequired {
   return {
     x402Version: 2,
     resource: {
@@ -27,6 +29,6 @@ export function buildPaymentRequired(config: MerchantConfig, resourceUrl: string
       mimeType: "application/json",
       serviceName: "x402-arbitrum-cdp demo merchant",
     },
-    accepts: [requirements],
+    accepts: [buildRequirements(config)],
   };
 }

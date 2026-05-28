@@ -1,8 +1,8 @@
-import "dotenv/config";
+import "./load-env";
 import { privateKeyToAccount } from "viem/accounts";
 import { ExactEvmScheme } from "@x402/evm";
 import { decodePaymentResponseHeader, wrapFetchWithPayment, x402Client } from "@x402/fetch";
-import { ARBITRUM_ONE } from "./networks.js";
+import { ARBITRUM_ONE } from "@x402-arbitrum/core";
 
 const RESOURCE_URL = process.env.RESOURCE_URL ?? "http://localhost:4021/report";
 const privateKey = process.env.BUYER_PRIVATE_KEY;

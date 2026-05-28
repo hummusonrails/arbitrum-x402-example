@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Arbitrum brand palette (navy-first, sharp, tech-forward). */
+@theme {
+  --color-navy: #213147;
+  --color-navy-deep: #1a2636;
+  --color-surface: #2d364d;
+  --color-surface-2: #38435f;
+  --color-arb-blue: #12aaff;
+  --color-arb-blue-soft: #9dcced;
+  --color-line: #3b4a63;
+}
+
+/* next/font variables resolved at runtime require the inline variant. */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-navy-deep text-white font-sans antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-arb-blue) 35%, transparent);
+  }
+
+  /* Sharp, tech-forward scrollbars. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+}
+
+/* Shiki code blocks: drop the theme background, let the surface show through. */
+.shiki {
+  background: transparent !important;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.shiki code {
+  display: block;
+}
+
+.shiki .line {
+  display: block;
+  padding: 0 1rem;
+  border-left: 2px solid transparent;
+}
+
+.shiki .line.highlighted {
+  background: color-mix(in srgb, var(--color-arb-blue) 14%, transparent);
+  border-left-color: var(--color-arb-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
