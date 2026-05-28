@@ -1,0 +1,4 @@
+# Never upload secrets or local capture data to Vercel.
+.env
+.env.local
+apps/demo/.capture/
