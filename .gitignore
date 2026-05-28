@@ -18,3 +18,4 @@ apps/demo/.capture/
 # misc
 .DS_Store
 *.tsbuildinfo
+.vercel
