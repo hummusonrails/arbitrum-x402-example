@@ -5,6 +5,7 @@ import { useConnection } from "wagmi";
 import { STEPS } from "@/content/lesson";
 import { buildReplayEvents, fixture } from "@/fixtures/replay";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { StepRail } from "@/components/StepRail";
 import { LessonPanel } from "@/components/LessonPanel";
 import { Console } from "@/components/Console";
@@ -183,6 +184,8 @@ export function Walkthrough({
           <Console events={visibleEvents} />
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
