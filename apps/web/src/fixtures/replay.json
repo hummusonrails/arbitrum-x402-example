@@ -1,0 +1,244 @@
+{
+  "network": "eip155:42161",
+  "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+  "priceUsdc": "10000",
+  "settled": true,
+  "paymentRequired": {
+    "x402Version": 2,
+    "resource": {
+      "url": "http://localhost:4191/report",
+      "description": "Premium market data snapshot",
+      "mimeType": "application/json",
+      "serviceName": "x402-arbitrum-cdp demo merchant"
+    },
+    "accepts": [
+      {
+        "scheme": "exact",
+        "network": "eip155:42161",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "amount": "10000",
+        "payTo": "0x1111111111111111111111111111111111111111",
+        "maxTimeoutSeconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "typedData": {
+    "domain": {
+      "name": "USD Coin",
+      "version": "2",
+      "chainId": 42161,
+      "verifyingContract": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    },
+    "types": {
+      "TransferWithAuthorization": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "name": "validAfter",
+          "type": "uint256"
+        },
+        {
+          "name": "validBefore",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "bytes32"
+        }
+      ]
+    },
+    "primaryType": "TransferWithAuthorization",
+    "message": {
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x1111111111111111111111111111111111111111",
+      "value": "10000",
+      "validAfter": "1779969056",
+      "validBefore": "1779969956",
+      "nonce": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+    }
+  },
+  "paymentPayload": {
+    "x402Version": 2,
+    "payload": {
+      "authorization": {
+        "from": "0x2222222222222222222222222222222222222222",
+        "to": "0x1111111111111111111111111111111111111111",
+        "value": "10000",
+        "validAfter": "1779969056",
+        "validBefore": "1779969956",
+        "nonce": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+      },
+      "signature": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+    },
+    "resource": {
+      "url": "http://localhost:4191/report",
+      "description": "Premium market data snapshot",
+      "mimeType": "application/json",
+      "serviceName": "x402-arbitrum-cdp demo merchant"
+    },
+    "accepted": {
+      "scheme": "exact",
+      "network": "eip155:42161",
+      "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "amount": "10000",
+      "payTo": "0x1111111111111111111111111111111111111111",
+      "maxTimeoutSeconds": 300,
+      "extra": {
+        "name": "USD Coin",
+        "version": "2"
+      }
+    }
+  },
+  "verify": {
+    "request": {
+      "x402Version": 2,
+      "paymentPayload": {
+        "x402Version": 2,
+        "payload": {
+          "authorization": {
+            "from": "0x2222222222222222222222222222222222222222",
+            "to": "0x1111111111111111111111111111111111111111",
+            "value": "10000",
+            "validAfter": "1779969056",
+            "validBefore": "1779969956",
+            "nonce": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+          },
+          "signature": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+        },
+        "resource": {
+          "url": "http://localhost:4191/report",
+          "description": "Premium market data snapshot",
+          "mimeType": "application/json",
+          "serviceName": "x402-arbitrum-cdp demo merchant"
+        },
+        "accepted": {
+          "scheme": "exact",
+          "network": "eip155:42161",
+          "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "amount": "10000",
+          "payTo": "0x1111111111111111111111111111111111111111",
+          "maxTimeoutSeconds": 300,
+          "extra": {
+            "name": "USD Coin",
+            "version": "2"
+          }
+        }
+      },
+      "paymentRequirements": {
+        "scheme": "exact",
+        "network": "eip155:42161",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "amount": "10000",
+        "payTo": "0x1111111111111111111111111111111111111111",
+        "maxTimeoutSeconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    },
+    "response": {
+      "isValid": true,
+      "payer": "0x2222222222222222222222222222222222222222"
+    }
+  },
+  "settle": {
+    "request": {
+      "x402Version": 2,
+      "paymentPayload": {
+        "x402Version": 2,
+        "payload": {
+          "authorization": {
+            "from": "0x2222222222222222222222222222222222222222",
+            "to": "0x1111111111111111111111111111111111111111",
+            "value": "10000",
+            "validAfter": "1779969056",
+            "validBefore": "1779969956",
+            "nonce": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+          },
+          "signature": "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+        },
+        "resource": {
+          "url": "http://localhost:4191/report",
+          "description": "Premium market data snapshot",
+          "mimeType": "application/json",
+          "serviceName": "x402-arbitrum-cdp demo merchant"
+        },
+        "accepted": {
+          "scheme": "exact",
+          "network": "eip155:42161",
+          "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "amount": "10000",
+          "payTo": "0x1111111111111111111111111111111111111111",
+          "maxTimeoutSeconds": 300,
+          "extra": {
+            "name": "USD Coin",
+            "version": "2"
+          }
+        }
+      },
+      "paymentRequirements": {
+        "scheme": "exact",
+        "network": "eip155:42161",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "amount": "10000",
+        "payTo": "0x1111111111111111111111111111111111111111",
+        "maxTimeoutSeconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    },
+    "response": {
+      "network": "eip155:42161",
+      "payer": "0x2222222222222222222222222222222222222222",
+      "success": true,
+      "transaction": "0xabababababababababababababababababababababababababababababababab"
+    }
+  },
+  "finalStatus": 200,
+  "finalBody": {
+    "resource": "premium-market-data",
+    "asOf": "2026-05-28T12:00:58.306Z",
+    "requestId": "10f38a2a-a941-4617-afcc-1c4cb50aad22",
+    "payload": {
+      "btc": 71234.56,
+      "eth": 4567.89
+    },
+    "_payment": {
+      "txHash": "0xabababababababababababababababababababababababababababababababab",
+      "network": "eip155:42161",
+      "arbiscan": "https://arbiscan.io/tx/0xabababababababababababababababababababababababababababababababab"
+    }
+  },
+  "settlement": {
+    "network": "eip155:42161",
+    "payer": "0x2222222222222222222222222222222222222222",
+    "success": true,
+    "transaction": "0xabababababababababababababababababababababababababababababababab"
+  },
+  "balances": {
+    "buyerBefore": "723550",
+    "buyerAfter": "713550",
+    "recipientBefore": "196076684",
+    "recipientAfter": "196086684",
+    "buyerDelta": "-10000",
+    "recipientDelta": "10000"
+  },
+  "paymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwicmVzb3VyY2UiOnsidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo0MTkxL3JlcG9ydCIsImRlc2NyaXB0aW9uIjoiUHJlbWl1bSBtYXJrZXQgZGF0YSBzbmFwc2hvdCIsIm1pbWVUeXBlIjoiYXBwbGljYXRpb24vanNvbiIsInNlcnZpY2VOYW1lIjoieDQwMi1hcmJpdHJ1bS1jZHAgZGVtbyBtZXJjaGFudCJ9LCJhY2NlcHRzIjpbeyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6NDIxNjEiLCJhc3NldCI6IjB4YWY4OGQwNjVlNzdjOGNDMjIzOTMyN0M1RURiM0E0MzIyNjhlNTgzMSIsImFtb3VudCI6IjEwMDAwIiwicGF5VG8iOiIweDExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEiLCJtYXhUaW1lb3V0U2Vjb25kcyI6MzAwLCJleHRyYSI6eyJuYW1lIjoiVVNEIENvaW4iLCJ2ZXJzaW9uIjoiMiJ9fV19"
+}

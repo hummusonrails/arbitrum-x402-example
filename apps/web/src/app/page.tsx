@@ -1,15 +1,21 @@
-export default function Page() {
-  return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-      <span className="rounded-none border border-arb-blue/40 bg-surface px-3 py-1 font-mono text-xs uppercase tracking-widest text-arb-blue-soft">
-        scaffold check
-      </span>
-      <h1 className="text-4xl font-bold tracking-tight">
-        x402 on <span className="text-arb-blue">Arbitrum</span>
-      </h1>
-      <p className="max-w-prose text-arb-blue-soft">
-        Interactive walkthrough scaffold is live. The full lesson UI lands next.
-      </p>
-    </main>
+import { SNIPPETS } from "@/generated/snippets";
+import { STEPS } from "@/content/lesson";
+import { highlightToHtml } from "@/lib/shiki";
+import { resolveHighlightLines } from "@/lib/snippets";
+import { isLiveConfigured } from "@/lib/env";
+import { Walkthrough } from "@/components/Walkthrough";
+
+export default async function Page() {
+  // One highlighted snippet per step, with the step's emphasized lines baked in.
+  const stepViews = await Promise.all(
+    STEPS.map(async (s) => {
+      const snippet = SNIPPETS[s.snippetId];
+      const lines = resolveHighlightLines(snippet.code, s.highlight);
+      return { label: snippet.label, html: await highlightToHtml(snippet.code, snippet.lang, lines) };
+    })
   );
+
+  const liveEnabled = isLiveConfigured();
+
+  return <Walkthrough stepViews={stepViews} liveEnabled={liveEnabled} />;
 }

@@ -1,4 +1,4 @@
-// Server-only. Never import this from a client component — it reads CDP secrets.
+// Server-only. Never import this from a client component; it reads CDP secrets.
 import { config as loadDotenv } from "dotenv";
 import { resolve } from "node:path";
 import type { MerchantConfig } from "@x402-arbitrum/core";
